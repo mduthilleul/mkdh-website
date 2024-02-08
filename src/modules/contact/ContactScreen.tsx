@@ -1,6 +1,6 @@
 import {Text, View} from 'react-native'
 
-export default () => {
+export const ContactScren = () => {
   return (
     <View>
       <Text style={{fontFamily: 'Montserrat'}}>Contact</Text>

@@ -4,14 +4,9 @@ import {Link, Slot} from 'expo-router'
 import Head from 'expo-router/head'
 import {Dimensions, Image, Text, View} from 'react-native'
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router'
-
-export default function RootLayout() {
+export const Layout = () => {
   useFonts({
-    Montserrat: require('../assets/fonts/Montserrat-Regular.ttf'),
+    Montserrat: require('./resources/Montserrat-Regular.ttf'),
     ...FontAwesome.font,
   })
   return (
@@ -27,7 +22,7 @@ export default function RootLayout() {
         }}>
         <Image
           resizeMode="contain"
-          source={require('@/assets/images/banner.png')}
+          source={require('@/modules/common/layout/resources/banner.png')}
           style={{height: 25, alignSelf: 'center', marginTop: 25}}
         />
         <View
