@@ -1,0 +1,4 @@
+node_modules/
+metro.config.js
+.eslintrc.js
+babel.config.js
