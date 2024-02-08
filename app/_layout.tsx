@@ -1,58 +1,61 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-
-import { useColorScheme } from '@/components/useColorScheme';
+import FontAwesome from '@expo/vector-icons/FontAwesome'
+import {useFonts} from 'expo-font'
+import {Link, Slot} from 'expo-router'
+import Head from 'expo-router/head'
+import {Dimensions, Image, Text, View} from 'react-native'
 
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
-} from 'expo-router';
-
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+} from 'expo-router'
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  useFonts({
+    Montserrat: require('../assets/fonts/Montserrat-Regular.ttf'),
     ...FontAwesome.font,
-  });
-
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
+  })
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
-  );
+    <>
+      <Head>
+        <title>MKDH Solutions</title>
+      </Head>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#365347',
+          minHeight: Dimensions.get('window').height,
+        }}>
+        <Image
+          resizeMode="contain"
+          source={require('@/assets/images/banner.png')}
+          style={{height: 25, alignSelf: 'center', marginTop: 25}}
+        />
+        <View
+          style={{
+            flex: 1,
+            marginHorizontal: 50,
+            marginVertical: 25,
+            backgroundColor: 'white',
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              padding: 10,
+              gap: 10,
+            }}>
+            <Link href="/">
+              <Text style={{fontFamily: 'Montserrat'}}>Home</Text>
+            </Link>
+            <Link href="/contact">
+              <Text style={{fontFamily: 'Montserrat'}}>Contact</Text>
+            </Link>
+          </View>
+          <View style={{flex: 1, paddingHorizontal: 20}}>
+            <Slot />
+          </View>
+        </View>
+      </View>
+    </>
+  )
 }
