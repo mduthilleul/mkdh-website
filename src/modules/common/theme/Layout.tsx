@@ -1,18 +1,14 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome'
 import {ThemeProvider} from '@shopify/restyle'
-import {useFonts} from 'expo-font'
 import {Link, Slot} from 'expo-router'
 import Head from 'expo-router/head'
 import {Image, ScrollView} from 'react-native'
 import {Box} from './Box'
 import {Text} from './Text'
 import theme from './theme'
+import {useAppFonts} from './useAppFonts'
 
 export const Layout = () => {
-  useFonts({
-    Montserrat: require('./resources/Montserrat-Regular.ttf'),
-    ...FontAwesome.font,
-  })
+  useAppFonts()
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -24,7 +20,14 @@ export const Layout = () => {
           source={require('@/modules/common/theme/resources/banner.png')}
           style={{height: 25, alignSelf: 'center', marginTop: 25}}
         />
-        <Box flex={1} mx="$xl" my="$lg" bg="$background">
+        <Box
+          flex={1}
+          my="$lg"
+          mx="$lg"
+          bg="$background"
+          alignSelf="center"
+          maxWidth={900}
+          maxHeight={400}>
           <ScrollView>
             <Box
               zIndex={2}
@@ -35,13 +38,13 @@ export const Layout = () => {
               gap="$sm"
               right={0}>
               <Link href="/">
-                <Text>Home</Text>
+                <Text variant="link">Home</Text>
               </Link>
               <Link href="/contact">
-                <Text>Contact</Text>
+                <Text variant="link">Contact</Text>
               </Link>
             </Box>
-            <Box flex={1} px="$lg" pt="$lg">
+            <Box flex={1} px="$lg" pt="$2xl">
               <Slot />
             </Box>
           </ScrollView>

@@ -1,9 +1,10 @@
-import {Text, View} from 'react-native'
+import {Text} from 'react-native'
+import {Box} from '../common/theme/Box'
 
 export const ContactScren = () => {
   return (
-    <View>
+    <Box flex={1}>
       <Text style={{fontFamily: 'Montserrat'}}>Contact</Text>
-    </View>
+    </Box>
   )
 }

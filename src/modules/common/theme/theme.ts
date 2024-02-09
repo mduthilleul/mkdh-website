@@ -17,19 +17,27 @@ const theme = createTheme({
     $md: 16,
     $lg: 24,
     $xl: 40,
+    $2xl: 50,
   },
   textVariants: {
     header: {
-      fontWeight: 'bold',
-      fontSize: 34,
+      fontWeight: 900,
+      fontSize: 48,
+      fontFamily: 'MontserratBold',
+      color: '$primary',
     },
     body: {
       fontSize: 16,
-      lineHeight: 24,
+    },
+    link: {
+      fontSize: 18,
+      fontFamily: 'MontserratBold',
+      color: '$primary',
     },
     defaults: {
       fontFamily: 'Montserrat',
       color: '$text',
+      fontSize: 16,
     },
   },
 })
