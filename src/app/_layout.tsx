@@ -1,3 +1,3 @@
-import {Layout} from '@/modules/common/layout/Layout'
+import {Layout} from '@/modules/common/theme/Layout'
 
 export default Layout

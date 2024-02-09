@@ -1,17 +1,12 @@
-import {Text, View} from 'react-native'
+import {Box} from '../common/theme/Box'
+import {Text} from '../common/theme/Text'
 
 export const HomeScreen = () => {
   return (
-    <View>
-      <Text
-        style={{
-          fontFamily: 'Montserrat',
-          color: '#365347',
-          fontSize: 48,
-          fontWeight: '900',
-        }}>
+    <Box>
+      <Text variant="header">
         Hi 👋,{'\n'}I'm Mika,{'\n'}Fullstack Developer
       </Text>
-    </View>
+    </Box>
   )
 }
