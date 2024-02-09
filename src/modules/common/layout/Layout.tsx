@@ -2,7 +2,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import {useFonts} from 'expo-font'
 import {Link, Slot} from 'expo-router'
 import Head from 'expo-router/head'
-import {Dimensions, Image, Text, View} from 'react-native'
+import {Image, ScrollView, Text, View} from 'react-native'
 
 export const Layout = () => {
   useFonts({
@@ -18,7 +18,6 @@ export const Layout = () => {
         style={{
           flex: 1,
           backgroundColor: '#365347',
-          minHeight: Dimensions.get('window').height,
         }}>
         <Image
           resizeMode="contain"
@@ -32,23 +31,27 @@ export const Layout = () => {
             marginVertical: 25,
             backgroundColor: 'white',
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'flex-end',
-              padding: 10,
-              gap: 10,
-            }}>
-            <Link href="/">
-              <Text style={{fontFamily: 'Montserrat'}}>Home</Text>
-            </Link>
-            <Link href="/contact">
-              <Text style={{fontFamily: 'Montserrat'}}>Contact</Text>
-            </Link>
-          </View>
-          <View style={{flex: 1, paddingHorizontal: 20}}>
-            <Slot />
-          </View>
+          <ScrollView>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                padding: 10,
+                gap: 10,
+                position: 'absolute',
+                right: 0,
+              }}>
+              <Link href="/">
+                <Text style={{fontFamily: 'Montserrat'}}>Home</Text>
+              </Link>
+              <Link href="/contact">
+                <Text style={{fontFamily: 'Montserrat'}}>Contact</Text>
+              </Link>
+            </View>
+            <View style={{flex: 1, paddingHorizontal: 20}}>
+              <Slot />
+            </View>
+          </ScrollView>
         </View>
       </View>
     </>
