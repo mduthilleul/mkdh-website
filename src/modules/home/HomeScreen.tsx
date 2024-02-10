@@ -1,6 +1,7 @@
-import {Image} from 'react-native'
 import {Box} from '../common/theme/Box'
 import {Text} from '../common/theme/Text'
+
+require('./resources/mika.jpg')
 
 export const HomeScreen = () => {
   return (
@@ -15,9 +16,8 @@ export const HomeScreen = () => {
           Node.js, Flutter and Typescript.
         </Text>
       </Box>
-      <Image
-        source={require('./resources/mika.jpg')}
-        resizeMode="cover"
+      <img
+        src="./assets/src/modules/home/resources/mika.0e75a601cd71d7addd549d12fbf30213.jpg"
         style={{width: 300, height: 200, borderRadius: 20, marginTop: 50}}
       />
     </Box>
