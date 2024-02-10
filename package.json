@@ -8,7 +8,9 @@
     "test": "jest --watchAll",
     "lint": "tsc -p . --noemit && eslint --fix . --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky",
-    "export": "expo export --platform web --output-dir docs"
+    "web:export": "expo export --platform web --output-dir docs",
+    "web:open": "open docs/index.html",
+    "web:static": "yarn web:export && yarn web:open"
   },
   "jest": {
     "preset": "jest-expo"
@@ -20,6 +22,7 @@
     "expo": "~50.0.6",
     "expo-font": "~11.10.2",
     "expo-linking": "~6.2.2",
+    "expo-mail-composer": "^12.7.1",
     "expo-router": "~3.4.7",
     "expo-splash-screen": "~0.26.4",
     "expo-status-bar": "~1.11.1",
