@@ -5,7 +5,12 @@ require('./resources/mika.jpg')
 
 export const HomeScreen = () => {
   return (
-    <Box gap="$xl" flexDirection="row">
+    <Box
+      gap="$xl"
+      flexDirection={{
+        phone: 'column-reverse',
+        tablet: 'row',
+      }}>
       <Box gap="$lg" flex={1}>
         <Text variant="header">
           Hi 👋,{'\n'}I'm Mika,{'\n'}Fullstack Developer
@@ -18,7 +23,13 @@ export const HomeScreen = () => {
       </Box>
       <img
         src="./assets/src/modules/home/resources/mika.0e75a601cd71d7addd549d12fbf30213.jpg"
-        style={{width: 300, height: 200, borderRadius: 20, marginTop: 50}}
+        style={{
+          width: 300,
+          height: 200,
+          borderRadius: 20,
+          marginTop: 50,
+          alignSelf: 'center',
+        }}
       />
     </Box>
   )

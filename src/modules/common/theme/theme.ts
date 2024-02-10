@@ -40,6 +40,11 @@ const theme = createTheme({
       fontSize: 16,
     },
   },
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
+    desktop: 1024,
+  },
 })
 
 export type Theme = typeof theme
