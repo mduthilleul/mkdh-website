@@ -1,7 +1,7 @@
 import {ThemeProvider} from '@shopify/restyle'
-import {Link, Slot} from 'expo-router'
+import {Slot} from 'expo-router'
 import Head from 'expo-router/head'
-import {Image, ScrollView} from 'react-native'
+import {Image, Linking, Pressable, ScrollView} from 'react-native'
 import {Box} from './Box'
 import {Text} from './Text'
 import theme from './theme'
@@ -37,12 +37,10 @@ export const Layout = () => {
               padding="$sm"
               gap="$sm"
               right={0}>
-              <Link href="/">
-                <Text variant="link">Home</Text>
-              </Link>
-              <Link href="/contact">
+              <Pressable
+                onPress={() => Linking.openURL('mailto:contact@mkdh.fr')}>
                 <Text variant="link">Contact</Text>
-              </Link>
+              </Pressable>
             </Box>
             <Box flex={1} px="$lg" pt="$2xl">
               <Slot />
